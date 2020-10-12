@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
 import Contador from './Contador'
-import Timer from './Timer'
-import Relogio from './Relogio'
 import LabelCronometro from './LabelCronometro'
 
 
 
-function App() {
+function App_cronometro() {
   return (
     <div>
     <LabelCronometro name="Cronômetro"/>
-    <Cronometro/>
+    <Contador/>
     </div>
   );
 }
 
-export default App;
+export default App_cronometro;

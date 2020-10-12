@@ -2,11 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import App_timer from './App_timer';
+import App_cronometro from './App_cronometro';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Switch>
+            <Route path="/" exact={true} component={App} />
+            <Route path="/timer" component={App_timer} />
+            <Route path="/cronometro" component={App_cronometro} />
+
+        </Switch>
+    </ BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
