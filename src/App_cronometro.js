@@ -10,8 +10,8 @@ import LabelCronometro from './LabelCronometro'
 function App() {
   return (
     <div>
-    <LabelCronometro name="Relógio"/>
-    <Relogio/>
+    <LabelCronometro name="Cronômetro"/>
+    <Cronometro/>
     </div>
   );
 }
