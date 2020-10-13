@@ -11,7 +11,7 @@ class Timer extends React.Component{
             minutos: 0,
             isOn: false,
             status: "Parado",
-            label: "Start"
+            label: "Iniciar"
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,10 +50,10 @@ class Timer extends React.Component{
 
     toggle(){
         if(this.state.isOn===true) {
-        this.setState({isOn: false,status: "Parado",label:"Start"})
+        this.setState({isOn: false,status: "Parado",label:"Iniciar"})
         }
         else {
-        this.setState({isOn: true,status: "Funcionando",label:"Stop"})
+        this.setState({isOn: true,status: "Funcionando",label:"Parar"})
         
         }
     }
@@ -111,7 +111,9 @@ class Timer extends React.Component{
             
       </div>
     }
-    <Botao class="mt-2 mb-2"onClick={()=> this.toggle()} label={this.state.label}></Botao>
+    <div class="col d-flex justify-content-center">
+    <Botao class="mt-2 mb-2 " variant="dark" onClick={()=> this.toggle()} label={this.state.label}></Botao>
+    </div>
             </div>
             
         )

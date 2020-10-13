@@ -3,10 +3,12 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 150px;
 }
-
+.menor{
+  width: 150px;
+  margin: 1px;
+}
 .titulo{
   font-size: 1cm;
 }
