@@ -1,6 +1,4 @@
 import React from 'react'
-import Botao from './Botao'
-import LabelCronometro from './LabelCronometro'
 
 class Relogio extends React.Component {
 
@@ -39,10 +37,10 @@ class Relogio extends React.Component {
 
     render(){
         return (
-            <div>
-            <h1>{this.state.relogio1}</h1>
-            <h1>{this.state.relogio2}</h1>
-            <h1>{this.state.relogio3}</h1>
+            <div class="my-5">
+            <h1 class="display-4">{this.state.relogio1}</h1>
+            <h1 class="display-4">{this.state.relogio2}</h1>
+            <h1 class="display-4">{this.state.relogio3}</h1>
             </div>
             
         )

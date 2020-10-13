@@ -1,6 +1,6 @@
 import React from 'react'
 import Botao from './Botao'
-import LabelCronometro from './LabelCronometro'
+import {Toast} from 'react-bootstrap';
 
 class Timer extends React.Component{
 
@@ -69,39 +69,49 @@ class Timer extends React.Component{
         const { isOn }= this.state;
         return (
             <div>
-            <h1>{this.state.minutos}:{this.state.segundos}</h1>
-            <LabelCronometro name={this.state.status}/>
-            <Botao onClick={()=> this.toggle()} label={this.state.label}></Botao>
+                <div class="col d-flex justify-content-center">
+            <h1 class="display-4">{this.state.minutos}:{this.state.segundos}</h1>
+            </div>
             { isOn
             ? null
-            : <div id="form">
-            <form>
-        <label>
-          Minutos:
-          <input
-            id="min"
-            name="minutos"
-            type="number"
-            value={this.state.minutos}
-            onChange={this.handleInputChange} 
-            min="0"/>
-        </label>
-        <br />
-        <label>
-          Segundos:
-          <input
-            id="seg"
-            name="segundos"
-            type="number"
-            value={this.state.segundos}
-            onChange={this.handleInputChange} 
-            min="0"
-            max="59"/>
-        </label>
-        
-      </form>
+            : 
+            
+            <div id="form mx-auto">
+                <Toast class="mb-4">
+                <Toast.Header>
+                <strong className="mr-auto">Configurações</strong>
+                <small>Timer</small>
+            </Toast.Header>
+            <Toast.Body><form>
+                    <label>
+                    Minutos:
+                    <input
+                        id="min"
+                        name="minutos"
+                        type="number"
+                        value={this.state.minutos}
+                        onChange={this.handleInputChange} 
+                        min="0"/>
+                    </label>
+                    <br />
+                    <label>
+                    Segundos:
+                    <input
+                        id="seg"
+                        name="segundos"
+                        type="number"
+                        value={this.state.segundos}
+                        onChange={this.handleInputChange} 
+                        min="0"
+                        max="59"/>
+                    </label>
+                </form>
+                </Toast.Body>
+</Toast>
+            
       </div>
     }
+    <Botao class="mt-2 mb-2"onClick={()=> this.toggle()} label={this.state.label}></Botao>
             </div>
             
         )

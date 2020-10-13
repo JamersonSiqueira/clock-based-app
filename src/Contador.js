@@ -1,7 +1,6 @@
 import React from 'react'
 import Botao from './Botao'
 import LabelCronometro from './LabelCronometro'
-import Button from 'react-bootstrap/Button';
 
 class Contador extends React.Component {
 
@@ -12,7 +11,9 @@ class Contador extends React.Component {
             minutos: 0,
             stop: false,
             btnStop: "Pausar",
-            parcial: ""
+            parcial: "",
+            minultimo: "",
+            segultimo: "",
         }
 
     }
@@ -46,7 +47,10 @@ class Contador extends React.Component {
     zerarCronometro(){
         this.setState({
             segundos: 0,
-            minutos: 0
+            minutos: 0,
+            parcial: "",
+            minultimo:"",
+            segultimo:""
         })
     }
 
@@ -66,20 +70,30 @@ class Contador extends React.Component {
 
     gerarParcial(){
         let p = this.state.minutos + ":" + this.state.segundos
+        let difmin = this.state.minutos - this.state.minultimo
+        let difseg = this.state.segundos - this.state.segultimo
         this.setState({
-            parcial: this.state.parcial + " || " +p
+            minultimo: this.state.minutos,
+            segultimo: this.state.segundos,
+            parcial: this.state.parcial +"\n"+p+" || Diferença: "+difmin+":"+difseg
         })
     }
 
 
     render(){
         return (
-            <div class='mx-auto'>
-            <h1 class= 'mx-auto'>{this.state.minutos}:{this.state.segundos}</h1>
+            <div>
+                <div class="row d-flex justify-content-center">
+            <h1 class= 'mx-auto display-4'>{this.state.minutos}:{this.state.segundos}</h1>
+            </div>
+            <div class="row d-flex justify-content-center">
             <Botao class='p-2'variant="dark" onClick={()=> this.zerarCronometro()} label="Zerar" />
             <Botao variant="dark" onClick={()=> this.pausarCronometro()} label={this.state.btnStop} />
             <Botao variant="dark" onClick={()=> this.gerarParcial()} label="Parcial" />
+            </div>
+            <div class="parcial">
             <LabelCronometro name={this.state.parcial}/>
+            </div>
             </div>
             
         )
