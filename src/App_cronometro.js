@@ -7,7 +7,7 @@ import LabelCronometro from './LabelCronometro'
 
 function App_cronometro() {
   return (
-    <div>
+    <div class='container'>
     <LabelCronometro name="Cronômetro"/>
     <Contador/>
     </div>

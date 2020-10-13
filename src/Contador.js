@@ -1,6 +1,7 @@
 import React from 'react'
 import Botao from './Botao'
 import LabelCronometro from './LabelCronometro'
+import Button from 'react-bootstrap/Button';
 
 class Contador extends React.Component {
 
@@ -73,11 +74,11 @@ class Contador extends React.Component {
 
     render(){
         return (
-            <div>
-            <h1>{this.state.minutos}:{this.state.segundos}</h1>
-            <Botao onClick={()=> this.zerarCronometro()} label="Zerar" />
-            <Botao onClick={()=> this.pausarCronometro()} label={this.state.btnStop} />
-            <Botao onClick={()=> this.gerarParcial()} label="Parcial" />
+            <div class='mx-auto'>
+            <h1 class= 'mx-auto'>{this.state.minutos}:{this.state.segundos}</h1>
+            <Botao class='p-2'variant="dark" onClick={()=> this.zerarCronometro()} label="Zerar" />
+            <Botao variant="dark" onClick={()=> this.pausarCronometro()} label={this.state.btnStop} />
+            <Botao variant="dark" onClick={()=> this.gerarParcial()} label="Parcial" />
             <LabelCronometro name={this.state.parcial}/>
             </div>
             
