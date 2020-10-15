@@ -1,9 +1,11 @@
 import React from 'react'
 import Botao from './Botao'
 import {Toast} from 'react-bootstrap';
+import Sound from './Sound'
 
 class Timer extends React.Component{
 
+    
     constructor(props){
         super(props)
         this.state = {
@@ -11,7 +13,8 @@ class Timer extends React.Component{
             minutos: 0,
             isOn: false,
             status: "Parado",
-            label: "Iniciar"
+            label: "Iniciar",
+            tocar: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,7 +28,8 @@ class Timer extends React.Component{
                     this.segreset()
                     this.decrementarMin()
                 } else if(state.segundos <= 1 && state.minutos === 0){
-                    this.toggle()
+                      this.toggle()
+                      this.ligarsom()
                     return({segundos: 0})
                 }
                 return({segundos: state.segundos - 1})
@@ -34,6 +38,16 @@ class Timer extends React.Component{
         )
     }
 
+    desligarsom(){
+        this.setState({
+            tocar: false
+        })
+    }
+    ligarsom(){
+        this.setState({
+            tocar: true
+        })
+    }
     segreset(){
         this.setState({segundos: 59})
     }
@@ -53,6 +67,7 @@ class Timer extends React.Component{
         this.setState({isOn: false,status: "Parado",label:"Iniciar"})
         }
         else {
+            this.desligarsom()
         this.setState({isOn: true,status: "Funcionando",label:"Parar"})
         
         }
@@ -67,6 +82,7 @@ class Timer extends React.Component{
 
     render(){
         const { isOn }= this.state;
+        const { tocar }= this.state;
         return (
             <div>
                 <div class="col d-flex justify-content-center">
@@ -82,7 +98,8 @@ class Timer extends React.Component{
                 <strong className="mr-auto">Configurações</strong>
                 <small>Timer</small>
             </Toast.Header>
-            <Toast.Body><form>
+            <Toast.Body>
+            <form>
                     <label>
                     Minutos:
                     <input
@@ -114,6 +131,10 @@ class Timer extends React.Component{
     <div class="col d-flex justify-content-center">
     <Botao class="mt-2 mb-2 " variant="dark" onClick={()=> this.toggle()} label={this.state.label}></Botao>
     </div>
+    { tocar
+        ? <Sound />
+        : null
+    }
             </div>
             
         )
