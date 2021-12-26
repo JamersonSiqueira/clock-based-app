@@ -41,6 +41,7 @@ class Relogio extends React.Component {
             <h1 class="display-4">{this.state.relogio1}</h1>
             <h1 class="display-4">{this.state.relogio2}</h1>
             <h1 class="display-4">{this.state.relogio3}</h1>
+            <div> </div>
             </div>
             
         )
