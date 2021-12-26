@@ -5,7 +5,7 @@ import App from './App';
 import App_timer from './App_timer';
 import App_cronometro from './App_cronometro';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Switch, Route, RouteProps } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
